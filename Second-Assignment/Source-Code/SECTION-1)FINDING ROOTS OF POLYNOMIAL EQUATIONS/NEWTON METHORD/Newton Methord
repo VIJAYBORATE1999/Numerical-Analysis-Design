@@ -1,0 +1,120 @@
+package newtonraphson;
+import java.util.Scanner;
+
+public class Newtonraphson {
+
+
+
+    static double f(double a)
+
+    {
+
+        return a*a-a-1;
+
+    }
+
+     static double f1(double a)
+
+    {
+
+        return 2*a-1;
+
+    }
+
+    static double fabs(double a)
+
+    {
+
+      if(a<0)
+
+      {
+
+          a=-a;
+
+      }
+
+          return a;
+
+    }
+
+    public static void main(String[] args) {
+
+        Scanner obj1 = new Scanner(System.in);
+
+      
+
+     double a,b,x0,x1;
+
+      double e=0.00001;
+
+      int i=1;
+
+      System.out.println("enter the value of a");
+
+      a=obj1.nextInt();
+
+      System.out.println("enter the value of b");
+
+      b=obj1.nextInt();
+
+      if(fabs(f(a))<fabs(f(b)))
+
+      {
+
+          x0=a;
+
+      }
+
+      else
+
+      {
+
+       x0=b;
+
+      }
+
+      x1=x0-(f(x0)/f1(x0));
+
+      if(fabs (f(x1))<e)
+
+      {
+
+          System.out.println(x0);
+
+          System.out.println(x1);
+
+          System.out.println(f(x1));
+
+      }
+
+      else{
+
+          System.out.println(i);
+
+          System.out.println(x0);
+
+          System.out.println(x1);
+
+           System.out.println(f(x1));
+
+           i++;
+
+           x0=x1;
+
+      }
+
+        
+
+     System.out.println("root = "+x1);
+
+      
+
+    
+
+        
+
+    }
+
+    
+
+}
