@@ -1,0 +1,83 @@
+
+package regulafalsimethod;
+
+import java.util.Scanner;
+
+
+ class RegulaFalsiMethod {
+
+    static double f(double a)
+    {
+        return a*a-a-1;
+    }
+    static double fabs(double a)
+    {
+      if(a<0)
+      {
+          a=-a;
+      }
+          return a;
+    }
+    /*static double finda()
+    {
+        double x=0;
+        while(f(x)>0)
+        {
+            x--;
+        }
+     while(f(x)<0)
+     {
+         x++;
+     }
+     return --x;
+}
+    static double findb()
+    {
+        double x=0;
+        while(f(x)>0)
+        {
+           x--;
+        }
+        while(f(x)<0)
+        {
+            x++;
+        }
+        return x;
+         }*/
+    public static void main(String[] args) {
+      Scanner obj1 = new Scanner(System.in);
+      
+      double a,b,m=1;
+      double e=0.00001;
+      int i=1;
+      System.out.println("enter the value of a");
+      a=obj1.nextInt();
+      System.out.println("enter the value of b");
+      b=obj1.nextInt();
+      if(f(a)*f(b)>0)
+      {
+          System.out.println("invalid interval");
+      }
+      else
+      {
+          m=(a*f(b)-b*f(a))/(f(b)-f(a));
+      }
+      while(fabs (f(m))>=e)
+      {
+          System.out.println(i);
+          System.out.println(a);
+          System.out.println(b);
+          System.out.println(m);
+          System.out.println(f(m));
+        if(f(a)*f(b)>0)
+            a=m;
+        else
+            b=m;
+        m=(a*f(b)-b*f(a))/(f(b)-f(a));
+        i++;     
+      }
+     System.out.println("root = "+m);
+        
+    }
+
+}
