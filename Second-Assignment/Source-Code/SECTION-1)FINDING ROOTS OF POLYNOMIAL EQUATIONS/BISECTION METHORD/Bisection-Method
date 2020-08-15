@@ -1,0 +1,63 @@
+package bisectionmethod;
+
+import java.util.Scanner;
+
+
+public class Bisectionmethod {
+     static double f(double a)
+    {
+        return a*a-a-1;
+    }
+    static double fabs(double a)
+    {
+      if(a<0)
+      {
+          a=-a;
+      }
+          return a;
+    }
+    
+    public static void main(String[] args)
+    {
+      Scanner obj1 = new Scanner(System.in);
+      
+      double a,b,m=1;
+      double e=0.00001;
+      int i=1;
+      System.out.println("enter the value of a");
+      a=obj1.nextInt();
+      System.out.println("enter the value of b");
+      b=obj1.nextInt();
+      if(f(a)*f(b)>0)
+      {
+          System.out.println("invalid interval");
+      }
+    
+      while(fabs (f(m))>=e)
+      {
+          System.out.println(i);
+          System.out.println(a);
+          System.out.println(b);
+          System.out.println(m);
+          System.out.println(f(m));
+          System.out.println(f(a)*f(m));
+        if(f(a)*f(m)>0)
+            a=m;
+        else
+            b=m;
+        m=(a+b)/2;
+        i++;
+      }
+          System.out.println(i);
+          System.out.println(a);
+          System.out.println(b);
+          System.out.println(m);
+          System.out.println(f(m));
+         
+      
+     System.out.println("root = "+m);
+    }
+    
+}
+
+
